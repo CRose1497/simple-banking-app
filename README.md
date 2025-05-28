@@ -31,7 +31,7 @@ The project follows clean code principles throughout. Here are three examples:
   void withdrawTooMuchShouldThrowException() { ... }
   ```
 
-The required screenshots of these clean code examples are attached in the /docs folder in the repository.
+The required screenshots of these clean code examples are attached in the documentation folder in the repository.
 
 ---
 
