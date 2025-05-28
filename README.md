@@ -2,62 +2,103 @@
 
 This is a simple command-line Java application that simulates a basic banking system.
 
-## 💼 Features
 
-- Create a bank account with an owner's name
+---
+
+##  Documentation
+
+### 🔹 1. Clean Code Practices (With Example References)
+
+The project follows clean code principles throughout. Here are three examples:
+
+- **Descriptive Method Names**  
+  Methods like `deposit()`, `withdraw()`, and `getBalance()` clearly indicate what they do.
+  ```java
+  public void deposit(double amount) { ... }
+  ```
+
+- **Encapsulation and Private Fields**  
+  The `Account` class uses private fields and exposes controlled access through public methods.
+  ```java
+  private double balance;
+  public double getBalance() { return balance; }
+  ```
+
+- **Meaningful Test Names in JUnit**  
+  Test methods are clearly named to describe the scenario and expected outcome.
+  ```java
+  @Test
+  void withdrawTooMuchShouldThrowException() { ... }
+  ```
+
+The required screenshots of these clean code examples are attached in the /docs folder in the repository.
+
+---
+
+### 🔹 2. Project Overview
+
+This project is a **Simple Banking Application** built using Java. It allows the user to:
+- Create a bank account
 - Deposit funds
-- Withdraw funds with validation (no overdrafts)
-- View current account balance
+- Withdraw funds (with validation to prevent overdrafts)
+- Check current balance
 
-## 🧪 Testing
+All interactions are handled programmatically (no scanner input required per spec).
 
-This project includes unit tests using **JUnit 5**. Test cases include:
+---
 
-- Valid deposit increases balance
-- Valid withdrawal decreases balance
-- Invalid withdrawal (overdraft) throws an exception
+### 🔹 3. Unit Tests
 
-To run the tests:
+There are **3 unit tests** written using **JUnit 5**, found in `AccountTest.java`. They validate:
+
+- **Positive Case:** Depositing correctly increases the balance.
+- **Positive Case:** Withdrawing valid amount correctly decreases the balance.
+- **Negative Case:** Attempting to withdraw more than the balance throws an exception.
+
+These tests were run with:
 ```bash
 mvn test
 ```
 
-## ⚙️ Technologies Used
+---
 
-- Java 17
-- Maven
-- JUnit 5
-- GitHub Actions (CI)
+### 🔹 4. Dependencies
 
-## 🔁 Branching Strategy
+This project uses Maven for dependency management. The main dependencies in `pom.xml` are:
 
-This project follows a **Dev/Trunk-based workflow**:
-- All development was done in the `dev` branch
-- Pull requests were used to merge into `main`
-- GitHub Actions run tests on every PR
-
-## ✅ GitHub Actions
-
-A CI workflow is configured to:
-- Run `mvn clean install` on every pull request to `main`
-- Automatically check if the unit tests pass
-
-You can find the configuration in `.github/workflows/ci.yml`.
-
-## 📂 Project Structure
-
-```
-simple-banking-app/
-├── src/
-│   ├── main/java/com/chris/bank/
-│   │   ├── Account.java
-│   │   └── BankApp.java
-│   └── test/java/com/chris/bank/
-│       └── AccountTest.java
-├── pom.xml
-└── .github/workflows/ci.yml
+```xml
+<dependency>
+  <groupId>org.junit.jupiter</groupId>
+  <artifactId>junit-jupiter</artifactId>
+  <version>5.9.3</version>
+  <scope>test</scope>
+</dependency>
 ```
 
-## 📌 Author
+All dependencies were pulled from **Maven Central Repository**.
+
+---
+
+### 🔹 5. Issues Encountered
+
+-  **Initial Maven setup** failed due to using the wrong directory — resolved by running from the correct folder.
+-  **CI failed** on GitHub Actions due to environment config.
+-  Minor confusion with `AppTest.java` → replaced it with `AccountTest.java` for relevance.
+-  GitHub Actions were successfully configured and triggered via Pull Requests.
+-  `.gitignore` added to clean out unnecessary build files like `target/`.
+
+---
+
+###  Final Notes
+
+This project uses:
+- Clean, testable code
+- A structured dev → main GitHub workflow (3 PRs created and merged)
+- Auto-run tests via GitHub Actions
+- JUnit 5 for full test coverage of core banking logic
+
+---
+
+##  Author
 
 **Christian Rose**  
